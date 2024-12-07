@@ -2,15 +2,13 @@ import java.util.Scanner;
 
 public class Demo {
     public static void main(String[] args) {
-
+        Server server = new Server();
         Sender send = new Sender();
-        Client c=new Client();
         Scanner scanner = new Scanner(System.in);
         String choice;
         boolean running = true;
         do {
             System.out.println("Menu");
-            System.out.println("Choose the function u want to do");
             System.out.println("1.Add to Contacts");
             System.out.println("2.Display Contacts");
             System.out.println("3.Delete a contact");
@@ -21,7 +19,8 @@ public class Demo {
             System.out.println("8.Display messages in arranged way ");
             System.out.println("9.Delete your message");
             System.out.println("10.Exit the program");
-            System.out.println("Enter the number of your function u want to do(1-10):");
+            System.out.println("Enter your choice");
+
             choice = scanner.nextLine();
 
             switch (choice) {
@@ -40,31 +39,30 @@ public class Demo {
                     break;
                 case "4":
                     System.out.println("Sending message");
-                    c.setupcommunication();
-                    c.sendmessage();
+                    server.setupcommunication();
+                    server.sendmessage();
                     break;
-                
                 case "5":
                     System.out.println("Displaying messages send by u ");
-                    c.Displaymessagessend();
+                    server.Displaymessagessend();
                     break;
-                
+
                 case "6":
                     System.out.println("Printing messages recieved by u");
-                    c.Displayrecievemessages();
+                    server.Displayrecievemessages();
                     break;
                 case "7":
                     System.out.println("You have selected to display all messages");
-                    c.DisplayAllmessages();
+                    server.DisplayAllmessages();
                     break;
                 case"8":
-                   System.out.println("You have selected to display the messages in a sorted way");
-                   c.arraysort();
-                   break;
+                    System.out.println("You have selected to display the messages in a sorted way");
+                    server.arraysort();
+                    break;
                 case "9":
-                System.out.println("You selected to delete message");
-                c.deletemessage();
-               break;
+                    System.out.println("You selected to delete message");
+                    server.deletemessage();
+                    break;
 
                 case "10":
                     System.out.println("Exiting the program");
@@ -72,7 +70,7 @@ public class Demo {
                     break;
 
                 default:
-                    System.out.println("Invalid choice! Please select a number between 1 and 7.");
+                    System.out.println("Invalid choice! Please select a number between 1 and 12.");
             }
 
         } while (running);
@@ -80,3 +78,4 @@ public class Demo {
     }
 
 }
+
